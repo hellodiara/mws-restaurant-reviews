@@ -18,7 +18,7 @@
 <body>
   <header>
     <nav>
-      <h1><a aria-label="Home" tabindex="1" href="/">Restaurant Reviews</a></h1>
+      <h1><a aria-label="Home" href="/">Restaurant Reviews</a></h1>
     </nav>
   </header>
 
@@ -29,10 +29,10 @@
     <section>
       <div class="filter-options">
         <h2>Filter Results</h2>
-        <select role="tablist" tabindex="2" id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()">
+        <select aria-label="Select Neighborhood" id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()">
           <option value="all">All Neighborhoods</option>
         </select>
-        <select role="tablist" tabindex="2" id="cuisines-select" name="cuisines" onchange="updateRestaurants()">
+        <select aria-label="Select Cuisine" id="cuisines-select" name="cuisines" onchange="updateRestaurants()">
           <option value="all">All Cuisines</option>
         </select>
       </div>
@@ -43,7 +43,6 @@
   <script type="application/javascript" charset="utf-8" src="js/dbhelper.js"></script>
   <script type="application/javascript" charset="utf-8" src="js/main.js"></script>
 
-<div id='map' style='width: 400px; height: 300px;'></div>
 <script>
   mapboxgl.accessToken = 'pk.eyJ1IjoiaGVsbG9kaWFyYSIsImEiOiJjamw4OWxuNDEzZ2hjM3VwZ3lodzN4cGpvIn0.H8Cxd1LazKqHQ-uF0Ni5LQ';
   var map = new mapboxgl.Map({
@@ -51,9 +50,6 @@
     style: 'mapbox://styles/mapbox/streets-v10'
   });
 </script>
-
-  <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&libraries=places&callback=initMap"></script> -->
-
 
   <footer id="footer">
     Copyright (c) 2017 <a href="/"><strong>Restaurant Reviews</strong></a> All Rights Reserved.
