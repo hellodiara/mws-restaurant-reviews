@@ -206,14 +206,12 @@ addMarkersToMap = (restaurants = self.restaurants) => {
   });
 
 } 
-/* addMarkersToMap = (restaurants = self.restaurants) => {
-  restaurants.forEach(restaurant => {
-    // Add marker to the map
-    const marker = DBHelper.mapMarkerForRestaurant(restaurant, self.map);
-    google.maps.event.addListener(marker, 'click', () => {
-      window.location.href = marker.url
-    });
-    self.markers.push(marker);
-  });
-} */
 
+// Service Worker
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker
+  .register('/sw.js')
+  .catch(function(err) {
+    console.error(err);
+  });
+}
