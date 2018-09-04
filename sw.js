@@ -1,7 +1,8 @@
 const cacheName = 'v1';
 const cacheAssets = [
-	'index.html',
-	'restaurant.html',
+	'/',
+	'/index.html',
+	'/restaurant.html',
 	'/css/styles.css',
 	'/js/main.js',
 	'/js/dbhelper.js',
@@ -21,7 +22,7 @@ const cacheAssets = [
 
 // Call Install Event
 self.addEventListener('install', (e) => {
-	console.log('Service Worker: Installed')
+	console.log('Service Worker: Installed');
 
 	e.waitUntil(
 		caches
@@ -35,7 +36,7 @@ self.addEventListener('install', (e) => {
 });
 
 // Call Activate Event
-self.addEventListener('install', (e) => {
+self.addEventListener('activate', (e) => {
 	console.log('Service Worker: Activated')
 	// Remove unwanted caches
 	e.waitUntil(
@@ -50,4 +51,10 @@ self.addEventListener('install', (e) => {
 			)
 		})
 	);
+});
+
+// Call Fetch Event
+self.addEventListener('fetch', e => {
+	console.log('Service Worker: Fetching');
+	e.respondWith(fetch(e.request).catch(() => caches.match(e.request)));
 });
